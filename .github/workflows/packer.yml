@@ -15,7 +15,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-     - name: Set up Python Environment
+      - name: Set up Python Environment
         run: |
           python3 -m venv venv
           source venv/bin/activate
@@ -23,7 +23,7 @@ jobs:
           pip install boto3 botocore ansible
           ansible-galaxy collection install amazon.aws
 
-     - name: Set up SSH key for Ansible
+      - name: Set up SSH key for Ansible
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
