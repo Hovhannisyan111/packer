@@ -1,0 +1,7 @@
+env
+.env
+ansible.cfg
+.terraform
+*.tfplan
+*.pem
+*.tfstate
