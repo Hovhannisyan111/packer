@@ -23,12 +23,12 @@ jobs:
           pip install boto3 botocore ansible
           ansible-galaxy collection install amazon.aws
 
+
       - name: Set up SSH key for Ansible
-        run: |
-          mkdir -p "/home/runner/.ssh"
-          echo "${{ secrets.EC2_SSH_KEY }}" > "/home/runner/.ssh/id_rsa"
-          chmod 600 "/home/runner/.ssh/id_rsa"
-          ssh-keyscan -H ec2.eu-central-1.amazonaws.com >> "/home/runner/.ssh/known_hosts"
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+
 
       - name: Configure AWS
         uses: aws-actions/configure-aws-credentials@v4
