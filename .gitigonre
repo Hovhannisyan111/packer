@@ -1,7 +1,8 @@
-env
+env/
 .env
 ansible.cfg
 .terraform
 *.tfplan
 *.pem
 *.tfstate
+group_vars/
