@@ -15,20 +15,13 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up Python Environment
-        run: |
-          python3 -m venv venv
-          source venv/bin/activate
-          pip install --upgrade pip
-          pip install boto3 botocore ansible
-          ansible-galaxy collection install amazon.aws
-
-
-          #      - name: Set up SSH key for Ansible
-          #        uses: webfactory/ssh-agent@v0.5.3
-          #        with:
-          #          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
-
+          #      - name: Set up Python Environment
+          #        run: |
+          #          python3 -m venv venv
+          #          source venv/bin/activate
+          #          pip install --upgrade pip
+          #          pip install boto3 botocore ansible
+          #          ansible-galaxy collection install amazon.aws
 
       - name: Configure AWS
         uses: aws-actions/configure-aws-credentials@v4
@@ -52,9 +45,3 @@ jobs:
         run: |
           terraform init
           terraform apply -auto-approve
-
-          #      - name: Run Ansible Playbook
-          #        run: |
-          #          source venv/bin/activate
-          #          ansible-playbook -i aws_ec2.yml playbook.yml
-          #
