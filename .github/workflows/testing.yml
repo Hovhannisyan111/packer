@@ -23,13 +23,9 @@ jobs:
           pip install boto3 botocore ansible
           ansible-galaxy collection install amazon.aws
 
-      - name: Debug: Show Home Directory
-        run: echo "HOME directory is: $HOME"
-
       - name: Set up SSH key for Ansible
         run: |
-          echo "Creating SSH directory in: $HOME/.ssh"
-          mkdir -p "$HOME/.ssh" || exit 1
+          mkdir -p "$HOME/.ssh"
           echo "${{ secrets.EC2_SSH_KEY }}" > "$HOME/.ssh/id_rsa"
           chmod 600 "$HOME/.ssh/id_rsa"
           ssh-keyscan -H ec2.eu-central-1.amazonaws.com >> "$HOME/.ssh/known_hosts"
