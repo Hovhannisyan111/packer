@@ -36,4 +36,4 @@ jobs:
         working-directory: ./project
         run: |
           terraform init
-          terraform apply --autoaprove
+          terraform apply -auto-approve
