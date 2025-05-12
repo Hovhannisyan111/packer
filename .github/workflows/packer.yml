@@ -21,13 +21,13 @@ jobs:
           role-to-assume: arn:aws:iam::976193222510:role/GithubRole
           aws-region: eu-central-1
 
-      - name: Set up Packer
-        uses: hashicorp/setup-packer@v3
+            #- name: Set up Packer
+            #  uses: hashicorp/setup-packer@v3
 
-      - name: Run Packer Build
-        run: |
-          packer init . 
-          packer build ami.pkr.hcl
+            #- name: Run Packer Build
+            #  run: |
+            #    packer init . 
+            #    packer build ami.pkr.hcl
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v3
