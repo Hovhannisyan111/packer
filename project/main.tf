@@ -47,7 +47,7 @@ module "asg" {
   instance_types   = "t2.micro"
   key_pair         = "frankfurt"
   target_group_arn = module.alb.target_group_arn
-  min_size         = 1
+  min_size         = 2
   max_size         = 4
   desired_capacity = 2
 }
