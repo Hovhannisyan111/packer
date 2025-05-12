@@ -11,10 +11,6 @@ packer {
  }
 }
 
-variable "ami_version" {
-  default = "1"
-}
-
 source "amazon-ebs" "empty_ami" {
   region        = "eu-central-1"
   source_ami    = "ami-009082a6cd90ccd0e"
@@ -22,7 +18,7 @@ source "amazon-ebs" "empty_ami" {
   ssh_username  = "ec2-user"
   ami_name      =  "packer-{{timestamp}}"
   tags = {
-    Name        = format("Ansible-%s", var.ami_version)
+    Name        = format("Packer-AMI")
   }
 }
 
